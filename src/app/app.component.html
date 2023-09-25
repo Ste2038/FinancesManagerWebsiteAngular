@@ -1,0 +1,23 @@
+<!-- Toolbar -->
+<mat-sidenav-container style="height:100%;">
+  <mat-toolbar color="primary">
+    <button mat-icon-button>
+      <mat-icon>attach_money</mat-icon>
+    </button>
+    <span>Finances</span>
+    <span style="flex: 1 1 auto;"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Bilancio: {{bilancio[bilancio.length - 1].valore}}€</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let bil of bilancio">{{bil.conto}}: {{bil.valore}}€</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <!--app-transazioni-uscite style="display:block; width: 50%; margin: 10px 5px 5px 10px;"></app-transazioni-uscite-->
+  <div style="display: flex;">
+    <app-spese-categorie style="display:block; width: 50%; margin: 10px 5px 5px 10px;"></app-spese-categorie>
+    <app-bilancio style="display:block; width: 50%; margin: 10px 5px 5px 10px;"></app-bilancio>
+    <!--app-transazioni-uscite style="display:block; width: 50%; margin: 10px 5px 5px 10px;"></app-transazioni-uscite-->
+  </div>
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Uscite categoria</mat-card-title>
+  </mat-card-header>
+
+  <mat-form-field>
+    <mat-label>Scegli una categoria</mat-label>
+    <mat-select (selectionChange)="updateGraph($event.value)">
+      <mat-option value="-1" selected>Parents</mat-option>
+      <mat-option *ngFor="let item of parents" value="{{item.idCategoria}}">{{item.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="chart">
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [stroke]="chartOptions.stroke!"
+      [colors]="chartOptions.colors!"
+      [dataLabels]="chartOptions.dataLabels!"
+      [legend]="chartOptions.legend!"
+      [markers]="chartOptions.markers!"
+      [grid]="chartOptions.grid!"
+      [yaxis]="chartOptions.yaxis!"
+  ></apx-chart>
+  </div>
+</mat-card>

@@ -1,0 +1,13 @@
+.card{
+  border-radius: 15px;
+  background-color: white;
+  color:black;
+}
+
+.chart{
+  width: 100%;
+}
+
+mat-card-header{
+  padding-bottom: 50px;
+}

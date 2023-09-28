@@ -1,4 +1,4 @@
-import { Conti } from './conti';
+import { Conti } from './conti-table';
 
 describe('Conti', () => {
   it('should create an instance', () => {

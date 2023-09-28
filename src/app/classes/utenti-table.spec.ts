@@ -1,4 +1,4 @@
-import { Utenti } from './utenti';
+import { Utenti } from './utenti-table';
 
 describe('Utenti', () => {
   it('should create an instance', () => {

@@ -1,4 +1,4 @@
-import { GruppiConto } from './gruppiconto';
+import { GruppiConto } from './gruppiconto-table';
 
 describe('GruppiConto', () => {
   it('should create an instance', () => {

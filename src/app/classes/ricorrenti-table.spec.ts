@@ -1,4 +1,4 @@
-import { Ricorrenti } from './ricorrenti';
+import { Ricorrenti } from './ricorrenti-table';
 
 describe('Ricorrenti', () => {
   it('should create an instance', () => {

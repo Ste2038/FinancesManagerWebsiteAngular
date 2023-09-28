@@ -1,11 +1,9 @@
+
+/* Angular */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { NgApexchartsModule } from "ng-apexcharts";
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Angular Material */
@@ -19,11 +17,32 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
+
+/* ApexCharts */
+import { NgApexchartsModule } from "ng-apexcharts";
+
+/* My Components */
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransazioniUsciteComponent } from './modules/transazioni-uscite/transazioni-uscite.component';
 import { BilancioComponent } from './modules/bilancio/bilancio.component';
 import { SpeseCategorieComponent } from './modules/spese-categorie/spese-categorie.component';
 
+/* My Database Components */
+import { DatabaseDashboardComponent } from './database/database-dashboard/database-dashboard.component';
+import { ViewCategorieTableComponent } from './database/view-categorie-table/view-categorie-table.component';
+import { ViewContiTableComponent } from './database/view-conti-table/view-conti-table.component';
+import { ViewCurrencyTableComponent } from './database/view-currency-table/view-currency-table.component';
+import { ViewGruppiContoTableComponent } from './database/view-gruppiconto-table/view-gruppiconto-table.component';
+import { ViewRicorrentiTableComponent } from './database/view-ricorrenti-table/view-ricorrenti-table.component';
+import { ViewTransazioniTableComponent } from './database/view-transazioni-table/view-transazioni-table.component';
+import { ViewUtentiTableComponent } from './database/view-utenti-table/view-utenti-table.component';
+
+/* Misc */
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 
 
@@ -32,7 +51,18 @@ import { SpeseCategorieComponent } from './modules/spese-categorie/spese-categor
     AppComponent,
     TransazioniUsciteComponent,
     BilancioComponent,
-    SpeseCategorieComponent
+    SpeseCategorieComponent,
+    DashboardComponent,
+
+    /* My Database Components */
+    DatabaseDashboardComponent,
+    ViewCategorieTableComponent,
+    ViewContiTableComponent,
+    ViewCurrencyTableComponent,
+    ViewGruppiContoTableComponent,
+    ViewRicorrentiTableComponent,
+    ViewTransazioniTableComponent,
+    ViewUtentiTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +82,13 @@ import { SpeseCategorieComponent } from './modules/spese-categorie/spese-categor
     MatListModule,
     MatMenuModule,
     MatSelectModule,
+    MatTabsModule,
+    MatTableModule,
     
+    RouterModule.forRoot([
+      {path: '', component: DashboardComponent},
+      {path: 'db', component: DatabaseDashboardComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

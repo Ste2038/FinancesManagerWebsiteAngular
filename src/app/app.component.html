@@ -1,10 +1,11 @@
 <!-- Toolbar -->
 <mat-sidenav-container style="height:100%;">
   <mat-toolbar color="primary">
-    <button mat-icon-button>
+    <button mat-icon-button [routerLink]="'/'">
       <mat-icon>attach_money</mat-icon>
     </button>
     <span>Finances</span>
+    <button mat-button [routerLink]="'/db'">DB</button>
     <span style="flex: 1 1 auto;"></span>
     <button mat-button [matMenuTriggerFor]="menu">Bilancio: {{bilancio[bilancio.length - 1].valore}}€</button>
     <mat-menu #menu="matMenu">

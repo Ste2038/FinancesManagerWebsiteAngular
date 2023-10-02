@@ -25,6 +25,34 @@ export class ServerService {
     }
   }
 
+  selectAllCategorie(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/categorie`, callback);
+  }
+
+  selectAllConti(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/conti`, callback);
+  }
+
+  selectAllCurrency(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/currency`, callback);
+  }
+
+  selectAllGruppiConto(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/gruppiconto`, callback);
+  }
+
+  selectAllRicorrenti(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/ricorrenti`, callback);
+  }
+
+  selectAllTransazioni(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/transazioni`, callback);
+  }
+
+  selectAllUtenti(callback: Function) {
+    this.request('GET', `http://localhost:8080/selectAll/utenti`, callback);
+  }
+
   getTransazioni(priorita: number[], callback: Function) {
     let data = {
       "queryResult":{

@@ -19,7 +19,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 /* ApexCharts */
 import { NgApexchartsModule } from "ng-apexcharts";
@@ -84,6 +85,8 @@ import { AppComponent } from './app.component';
     MatSelectModule,
     MatTabsModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     
     RouterModule.forRoot([
       {path: '', component: DashboardComponent},

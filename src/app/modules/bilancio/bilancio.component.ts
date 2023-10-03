@@ -39,12 +39,13 @@ export type ChartOptions = {
 })
 
 export class BilancioComponent implements OnInit {  
-  public chartOptions: Partial<ChartOptions>;
+  public chartOptions1: Partial<ChartOptions>;
+  public chartOptions2: Partial<ChartOptions>;
   
   constructor(private server: ServerService){
-    this.chartOptions = {
+    this.chartOptions1 = {
       chart: {
-        height: 350,
+        height: 200,
         type: "line",
         dropShadow: {
           enabled: true,
@@ -66,37 +67,16 @@ export class BilancioComponent implements OnInit {
           opacity: 0.5
         }
       },  
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "smooth"
-      },
-      markers: {
-        size: 0//1
-      },
+      dataLabels: { enabled: false },
+      stroke: { curve: "smooth" },
+      markers: { size: 0 },
       xaxis: {
-        /*categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Set",
-          "Oct",
-          "Nov",
-          "Dec"
-        ],*/
         title: { text: "Mesi" },
         type: "datetime",
       },
       yaxis: {
         title: { text: "Soldi" },
         min: 0,
-        //max: 1000
       },
       legend: {
         position: "top",
@@ -107,19 +87,37 @@ export class BilancioComponent implements OnInit {
       },
       series: [],
     };
+
+    this.chartOptions2 = {
+      chart: this.chartOptions1.chart,
+      grid: this.chartOptions1.grid,
+      dataLabels: this.chartOptions1.dataLabels,
+      stroke: this.chartOptions1.stroke,
+      markers: this.chartOptions1.markers,
+      xaxis: this.chartOptions1.xaxis,
+      yaxis: { title: { text: "Soldi" } },
+      legend: this.chartOptions1.legend,
+      series: [],
+    };
   }
 
   ngOnInit(): void {
     let component = this;
     component.server.getBilancioAnnuo(function(result: any){
-      component.chartOptions.series = [];
+      component.chartOptions1.series = [];
       console.log(result);
-      for(let i = 0; i < result.length; i++){
-        component.chartOptions.series.push({
+      for(let i = 0; i < result.length- 1; i++){
+        component.chartOptions1.series.push({
           name: result[i].conto,
           data: result[i].data
         });
       }
+      component.chartOptions2.series = [];
+
+      component.chartOptions2.series.push({
+        name: result[result.length- 1].conto,
+        data: result[result.length- 1].data
+      });
     });
   }
 }

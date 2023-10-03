@@ -83,6 +83,6 @@ export class ServerService {
   }
 
   getBilancioAnnuo(callback: Function){
-    this.request('GET', `http://localhost:8080/bilancio/annuo`, callback);
+    this.request('GET', `http://localhost:8080/bilancio/futuro`, callback);
   }
 }

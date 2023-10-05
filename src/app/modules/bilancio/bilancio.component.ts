@@ -105,18 +105,29 @@ export class BilancioComponent implements OnInit {
     let component = this;
     component.server.getBilancioAnnuo(function(result: any){
       component.chartOptions1.series = [];
-      console.log(result);
+      //console.log(result);
       for(let i = 0; i < result.length- 1; i++){
+        let tmpData = [];
+        let keys = Object.keys(result[i].data);
+        for (let j = 0; j < keys.length; j++) {
+          tmpData.push(result[i].data[keys[j]]);
+        }
+
         component.chartOptions1.series.push({
           name: result[i].conto,
-          data: result[i].data
+          data: tmpData
         });
       }
-      component.chartOptions2.series = [];
 
+      component.chartOptions2.series = [];
+      let tmpData = [];
+      let keys = Object.keys(result[result.length- 1].data);
+      for (let j = 0; j < keys.length; j++) {
+        tmpData.push(result[result.length- 1].data[keys[j]]);
+      }
       component.chartOptions2.series.push({
         name: result[result.length- 1].conto,
-        data: result[result.length- 1].data
+        data: tmpData
       });
     });
   }

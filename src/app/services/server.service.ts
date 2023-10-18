@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
+  url: string  = "http://192.168.88.100:8080";
 
   constructor(private http: HttpClient) { }
 
@@ -26,31 +27,31 @@ export class ServerService {
   }
 
   selectAllCategorie(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/categorie`, callback);
+    this.request('GET', this.url + `/selectAll/categorie`, callback);
   }
 
   selectAllConti(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/conti`, callback);
+    this.request('GET', this.url + `/selectAll/conti`, callback);
   }
 
   selectAllCurrency(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/currency`, callback);
+    this.request('GET', this.url + `/selectAll/currency`, callback);
   }
 
   selectAllGruppiConto(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/gruppiconto`, callback);
+    this.request('GET', this.url + `/selectAll/gruppiconto`, callback);
   }
 
   selectAllRicorrenti(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/ricorrenti`, callback);
+    this.request('GET', this.url + `/selectAll/ricorrenti`, callback);
   }
 
   selectAllTransazioni(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/transazioni`, callback);
+    this.request('GET', this.url + `/selectAll/transazioni`, callback);
   }
 
   selectAllUtenti(callback: Function) {
-    this.request('GET', `http://localhost:8080/selectAll/utenti`, callback);
+    this.request('GET', this.url + `/selectAll/utenti`, callback);
   }
 
   getTransazioni(priorita: number[], callback: Function) {
@@ -63,26 +64,26 @@ export class ServerService {
       }
     };
 
-    this.request('POST', `http://localhost:8080/transazioni`, callback, data);
+    this.request('POST', this.url + `/transazioni`, callback, data);
   }
 
   getPriorita(callback: Function){
-    this.request('GET', `http://localhost:8080/priorita`, callback);
+    this.request('GET', this.url + `/priorita`, callback);
   }
   
   getBilancio(callback: Function){
-    this.request('GET', `http://localhost:8080/bilancio`, callback);
+    this.request('GET', this.url + `/bilancio`, callback);
   }
 
   getSpeseCategorie(parent:number , callback: Function){
-    this.request('GET', `http://localhost:8080/categoriemensili?parent=`+parent, callback);
+    this.request('GET', this.url + `/categoriemensili?parent=`+parent, callback);
   }
 
   getCategorieUscitaParent(callback: Function){
-    this.request('GET', `http://localhost:8080/categorieuscitaparent`, callback);
+    this.request('GET', this.url + `/categorieuscitaparent`, callback);
   }
 
   getBilancioAnnuo(callback: Function){
-    this.request('GET', `http://localhost:8080/bilancio/futuro`, callback);
+    this.request('GET', this.url + `/bilancio/futuro`, callback);
   }
 }

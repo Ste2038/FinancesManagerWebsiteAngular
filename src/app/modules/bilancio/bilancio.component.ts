@@ -14,6 +14,7 @@ import {
   ApexTitleSubtitle,
   ApexLegend,
   ApexResponsive,
+  ApexAnnotations
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -30,6 +31,7 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
   responsive: ApexResponsive[];
   labels: any;
+  annotations: ApexAnnotations;
 };
 
 @Component({
@@ -66,7 +68,23 @@ export class BilancioComponent implements OnInit {
           colors: ["#f3f3f3", "transparent"],
           opacity: 0.5
         }
-      },  
+      },  annotations: {
+        xaxis: [
+          {
+            x: new Date().getTime(),
+            strokeDashArray: 0,
+            borderColor: "#775DD0",
+            label: {
+              borderColor: "#775DD0",
+              style: {
+                color: "#fff",
+                background: "#775DD0"
+              },
+              text: "Anno Test"
+            }
+          }
+        ]
+      },
       dataLabels: { enabled: false },
       stroke: { curve: "smooth" },
       markers: { size: 0 },

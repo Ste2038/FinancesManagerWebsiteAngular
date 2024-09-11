@@ -21,6 +21,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 /* ApexCharts */
 import { NgApexchartsModule } from "ng-apexcharts";
@@ -44,6 +46,7 @@ import { ViewUtentiTableComponent } from './database/view-utenti-table/view-uten
 /* Misc */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SavingsMeseComponent } from './modules/savings-mese/savings-mese.component';
 
 
 
@@ -64,6 +67,7 @@ import { AppComponent } from './app.component';
     ViewRicorrentiTableComponent,
     ViewTransazioniTableComponent,
     ViewUtentiTableComponent,
+    SavingsMeseComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,7 @@ import { AppComponent } from './app.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatGridListModule,
     
     RouterModule.forRoot([
       {path: '', component: DashboardComponent},

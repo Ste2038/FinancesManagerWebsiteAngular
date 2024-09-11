@@ -136,7 +136,7 @@ export class SpeseCategorieComponent implements OnInit {
         if (valid)
           component.chartOptions.series.push({name: spese[key].nome, data: spese[key].mesi});
       }
-      console.log(component.chartOptions.series);
+      //console.log(component.chartOptions.series);
     });
   }
 }

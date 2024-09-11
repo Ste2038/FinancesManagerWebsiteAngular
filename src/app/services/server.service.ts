@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
-  url: string  = "http://192.168.88.100:8080";
+  url: string  = "http://localhost:8080"; //"http://192.168.88.100:8080";
 
   constructor(private http: HttpClient) { }
 
@@ -85,5 +85,9 @@ export class ServerService {
 
   getBilancioAnnuo(callback: Function){
     this.request('GET', this.url + `/bilancio/futuro`, callback);
+  }
+
+  getSavingsMese(callback: Function){
+    this.request('GET', this.url + `/savings/mese`, callback);
   }
 }
